@@ -6,12 +6,10 @@ function Nav() {
 
   useEffect(() => {
     const onScroll = () => {
-      console.log(window.scrollY);
-      if (window.scrollY > 50) {
-        console.log("50보다 크다");
+      // console.log(window.scrollY);
+      if (window.scrollY > 8) {
         setShow(true);
       } else {
-        console.log("50보다 작다");
         setShow(false);
       }
     };
