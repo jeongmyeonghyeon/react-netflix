@@ -1,9 +1,12 @@
 .row {
   color: white;
+  padding-left: 4%;
+  margin: 3vw 0;
 }
 h2 {
-  padding-left: 4%;
   margin: 0;
+  margin-bottom: 0.5em;
+  font-size: 1.4vw;
 }
 .slider {
   position: relative;
@@ -70,9 +73,8 @@ h2 {
   display: flex;
   overflow-y: hidden;
   overflow-x: scroll;
-  padding: 20px 0 20px 4%;
+  padding: 20px 0 20px 20px;
   scroll-behavior: smooth;
-  cursor: pointer;
 }
 .row__posters::-webkit-scrollbar {
   display: none;
@@ -84,6 +86,7 @@ h2 {
   margin-right: 10px;
   transition: transform 450ms;
   border-radius: 4px;
+  cursor: pointer;
 }
 .row__poster:hover {
   transform: scale(1.08);
@@ -140,6 +143,17 @@ h2 {
 .swiper-pagination-bullet {
   background: gray !important;
   opacity: 1 !important;
+  border-radius: 0 !important;
+  width: 16px !important;
+  height: 3px !important;
+  margin: 0 !important;
+}
+
+.swiper-pagination-bullet:not(:first-of-type) {
+  margin-left: 2px !important;
+}
+.swiper-pagination-bullet:last-of-type {
+  margin-right: 8px !important;
 }
 
 .swiper-pagination-bullet-active {
