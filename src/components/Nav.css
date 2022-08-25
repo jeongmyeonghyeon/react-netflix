@@ -28,3 +28,24 @@
   width: 32px;
   object-fit: contain;
 }
+
+.nav__secondary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.nav__secondary-input {
+  height: 34px;
+  line-height: 34px;
+  box-sizing: border-box;
+  color: #fff;
+  display: inline-block;
+  font-size: 14px;
+  outline: none;
+  padding: 7px 12px 7px 12px;
+  width: 212px;
+  background-color: rgba(0, 0, 0, 0.75);
+  border: 1px solid hsla(0, 0%, 100%, 0.85);
+}
