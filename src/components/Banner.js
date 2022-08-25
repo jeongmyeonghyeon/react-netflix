@@ -2,9 +2,11 @@ import axios from "../api/axios";
 import React, { useEffect, useState } from "react";
 import requests from "../api/requests";
 import "./Banner.css";
+import styled from "styled-components";
 
 function Banner() {
   const [movie, setMovie] = useState([]);
+  const [isClicked, setIsClicked] = useState(false);
 
   useEffect(() => {
     fetchData();
@@ -24,6 +26,7 @@ function Banner() {
     });
 
     // console.log("movieDetail", movieDetail);
+    console.log(movieDetail.videos.results[0]);
     setMovie(movieDetail);
   };
 
@@ -31,30 +34,90 @@ function Banner() {
     return <div>Loading...</div>;
   }
 
-  return (
-    movie && (
-      <section
-        className="banner"
-        style={{
-          backgroundImage: `url("https://image.tmdb.org/t/p/original${movie?.backdrop_path}")`,
-          backgroundPosition: "top center",
-          backgroundSize: "cover",
-        }}
-      >
-        <div className="banner__contents">
-          <h1 className="banner__title">
-            {movie.title || movie.name || movie.original_name}
-          </h1>
-          <div className="banner__buttons">
-            <div className="banner__button play">Play</div>
-            <div className="banner__button info">More Information</div>
+  if (!isClicked) {
+    return (
+      movie && (
+        <section
+          className="banner"
+          style={{
+            backgroundImage: `url("https://image.tmdb.org/t/p/original${movie?.backdrop_path}")`,
+            backgroundPosition: "top center",
+            backgroundSize: "cover",
+          }}
+        >
+          <div className="banner__contents">
+            <h1 className="banner__title">
+              {movie.title || movie.name || movie.original_name}
+            </h1>
+            <div className="banner__buttons">
+              <div
+                className="banner__button play"
+                onClick={() => setIsClicked(true)}
+              >
+                Play
+              </div>
+              <div className="banner__button info">More Information</div>
+            </div>
+            <p className="banner__description">{movie.overview}</p>
           </div>
-          <p className="banner__description">{movie.overview}</p>
-        </div>
-        <div className="banner--fadeBottom"></div>
-      </section>
-    )
-  );
+          <div className="banner--fadeBottom"></div>
+        </section>
+      )
+    );
+  } else {
+    return (
+      <Base>
+        <Wrapper>
+          <Iframe
+            width="560"
+            height="315"
+            src={`https://www.youtube.com/embed/${
+              movie.videos.results[0]?.key || "LwvXVEHS638"
+            }?controls=0&autoplay=1&loop=1&mute=1&playlist=${
+              movie.videos.results[0]?.key || "LwvXVEHS638"
+            }`}
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></Iframe>
+        </Wrapper>
+      </Base>
+    );
+  }
 }
+
+const Base = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  margin-top: -68px;
+`;
+
+const Wrapper = styled.div`
+  width: 100%;
+  height: 100%;
+`;
+
+const Iframe = styled.iframe`
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.65;
+  border: none;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+`;
 
 export default Banner;

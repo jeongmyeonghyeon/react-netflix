@@ -5,11 +5,12 @@
   margin-top: -68px;
   color: #fff;
 }
-.banner h1 {
+.banner h1,
+.banner p {
   margin: 0;
 }
 .banner__contents {
-  width: 40%;
+  width: 35%;
   margin-left: 4%;
   padding-top: 140px;
   z-index: 10;
@@ -17,18 +18,15 @@
   flex-direction: column;
   justify-self: flex-end;
   position: absolute;
-  bottom: 35%;
+  bottom: 32%;
 }
 .banner__title {
-  font-size: 5vw;
+  font-size: 5.45vw;
   font-weight: 700;
   text-shadow: 2px 2px 4px rgb(0 0 0 / 45%);
   white-space: nowrap;
 }
 .banner__description {
-  width: 45rem;
-  max-width: 400px;
-  height: 80px;
   color: #fff;
   font-size: 1.1vw;
   font-weight: 400;
@@ -62,7 +60,7 @@
 .banner__buttons {
   display: flex;
   flex-direction: row;
-  padding: 12px 0;
+  padding: 1rem 0;
 }
 .banner__button {
   display: flex;
@@ -98,7 +96,12 @@
   background-color: rgba(109, 109, 110, 0.4);
   color: #fff;
 }
-
 .space {
   margin-left: 4px;
+}
+
+@media (min-width: 1500px) {
+  .banner__contents {
+    bottom: 35%;
+  }
 }
