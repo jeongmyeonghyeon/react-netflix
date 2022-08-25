@@ -159,3 +159,7 @@ h2 {
   font-size: 1.3rem !important;
   font-weight: 600 !important;
 }
+
+.row:last-of-type {
+  margin-bottom: 4.5vw;
+}
