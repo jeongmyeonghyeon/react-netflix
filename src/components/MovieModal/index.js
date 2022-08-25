@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useRef } from "react";
+import useOnClickOutSide from "../../hooks/useOnClickOutSide";
 import "./MovieModal.css";
 
 function MovieModal({
@@ -11,10 +12,15 @@ function MovieModal({
   vote_average,
   setModalOpen,
 }) {
+  const ref = useRef();
+  useOnClickOutSide(ref, () => {
+    setModalOpen(false);
+  });
+
   return (
     <div className="presentation">
       <div className="wrapper-modal">
-        <div className="modal">
+        <div className="modal" ref={ref}>
           <span className="modal-close" onClick={() => setModalOpen(false)}>
             X
           </span>
