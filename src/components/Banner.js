@@ -30,6 +30,11 @@ function Banner() {
     setMovie(movieDetail);
   };
 
+  const handleClosePreviewClick = () => {
+    console.log("handleClosePreviewClick");
+    setIsClicked(false);
+  };
+
   if (movie.length === 0) {
     return <div>Loading...</div>;
   }
@@ -81,6 +86,9 @@ function Banner() {
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
           ></Iframe>
+          <div className="button-wrapper">
+            <button onClick={handleClosePreviewClick}>X</button>
+          </div>
         </Wrapper>
       </Base>
     );
@@ -100,6 +108,22 @@ const Base = styled.div`
 const Wrapper = styled.div`
   width: 100%;
   height: 100%;
+  position: relative;
+
+  div.button-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    button {
+      position: absolute;
+      bottom: 24px;
+      transform: translateX(-50%);
+      background-color: transparent;
+      border: 0;
+      color: #fff;
+    }
+  }
 `;
 
 const Iframe = styled.iframe`

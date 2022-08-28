@@ -1,10 +1,10 @@
 .searchContent {
   height: 100vh;
-  background-color: black;
+  background-color: #141414;
 }
 
 .search-container {
-  background-color: black;
+  background-color: #141414;
   width: 100%;
   text-align: center;
   padding: 5rem 0;

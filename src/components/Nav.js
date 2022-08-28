@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Nav.css";
 
 function Nav() {
@@ -31,7 +31,7 @@ function Nav() {
         className="nav__logo"
         src="https://w.namu.la/s/984a3a524c3a76ef69967a3538f0b655d9e4a9b948314bd8d57f34a1502753104f1613f356c08d4352cdfad86bbea9cd56b2133ea5c9c7a57f1c065b1048cb5b1a1ea53a1b05e8877e74bde9b20eb20d3751f1fed9e16eb43c2194a7060fa6e7"
         alt="nav-netflix-logo"
-        onClick={() => window.location.reload()}
+        onClick={() => navigate("/")}
       />
       <div className="nav__secondary">
         <input
