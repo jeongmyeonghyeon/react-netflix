@@ -122,6 +122,8 @@ const Wrapper = styled.div`
       background-color: transparent;
       border: 0;
       color: #fff;
+      font-size: 16px;
+      cursor: pointer;
     }
   }
 `;
